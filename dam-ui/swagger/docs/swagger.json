@@ -1,0 +1,1223 @@
+## TODO: Divide documentation into different files based on type
+## TODO: Replace placeholer descriptions and names
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "The Deloitte API Marketplace is a one stop shop for various microservice APIs, specific to financial institutions.\n\n[Learn about the Deloitte API Marketplace](http://deloitte.ca)\n\nFor this sample, you can use the api key `special-key` to test the authorization filters\n",
+    "version": "1.0.0",
+    "title": "Deloitte API Marketplace",
+    "termsOfService": "http://deloitte.com/terms/",
+    "contact": {
+      "name": "marketplace@deloitte.ca"
+    },
+    "license": {
+      "name": "Deloitte 1.0",
+      "url": "http://marketplace.deloitte.ca/licenses/LICENSE-1.0.html"
+    }
+  },
+  "host": "marketplace.deloitte.ca",
+  "basePath": "/v1",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+          "application/json"
+        ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    ## Beta Begins
+    "/Product/VDA": {
+      "post": {
+        "tags": [
+          "Product",
+          "Beta"
+        ],
+        "summary": "Optmize Vehicle to Driver Assignment",
+        "description": "Provides the vehicle to driver assignment optimized for lowest premium",
+        "operationId": "assignVehiclesToDrivers",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "vehicles, drivers and vehicle and driver attributes",
+            "required": true,
+            "schema": {
+              "$ref": '#/definitions/VDA'
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully matched driver",
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/Dwelling/ReplacementCost": {
+      "post": {
+        "tags": [
+          "Dwelling",
+          "Beta"
+        ],
+        "summary": "Estimate the replacement cost of a dwelling",
+        "description": "Using data recieved from third party sources, calculate an estimated replacement",
+        "operationId": "calculateReplacementCost",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Information on the dwelling to calculate",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Dwelling"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cost found"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/Payment/Moneris": {
+      "post": {
+        "tags": [
+          "Payment",
+          "Beta"
+        ],
+        "operationId": "startMonerisPayment",
+        "summary": "Start a payment process",
+        "description": "Retrieves a tokenized link from Moneris",
+        "responses": {
+          "200": {
+            "description": "Token gotten"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/Driver/MVR": {
+      "post": {
+        "tags": [
+          "Driver",
+          "Beta"
+        ],
+        "operationId": "retrieveMVRData",
+        "summary": "Retrieve a convictions and license info",
+        "description": "Retrieves the customers conviction and license information from the MTO",
+        "responses": {
+          "200": {
+            "description": "Info retrieved"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    ## Beta Ends
+    ## Alpha Begins
+    "/Credit/Transunion": {
+      "post": {
+        "tags": [
+          ## "Personal Data",
+          "Alpha"
+        ],
+        "operationId": "transunionData",
+        "summary": "Retrieve Transunion data",
+        "description": "Retrieves the customers credit score, mortgage, and other credit related information from Transunion",
+        "responses": {
+          "200": {
+            "description": "Information retrieved"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/Credit/Equifax": {
+      "post": {
+        "tags": [
+          ## "Personal Data",
+          "Alpha"
+        ],
+        "operationId": "equifaxData",
+        "summary": "Retrieve Equifax data",
+        "description": "Retrieves the customers credit score, mortgage, and other credit related information from Equifax",
+        "responses": {
+          "200": {
+            "description": "Information retrieved"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/Product/Recommend": {
+      "post": {
+        "tags": [
+          ##"Product",
+          "Alpha"
+        ],
+        "operationId": "recommendProduct",
+        "summary": "Recommend products to suggest to clients",
+        "description": "Using a defined product model, based on the product and attributes of a customer, recommended products can be suggested.",
+        "responses": {
+          "200": {
+            "description": "Recommendations Made"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/Product/Match": {
+      "post": {
+        "tags": [
+          ## "Product",
+          "Alpha"
+        ],
+        "operationId": "matchProduct",
+        "summary": "Match a product to a user",
+        "description": "Based on a dwellings usage and ownership type, the correct type of property insurance can be determined (Tenants, Condo, Homeowners, Rented Dwelling)",
+        "responses": {
+          "200": {
+            "description": "Product matched"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/Location/DistanceBetween": {
+      "post": {
+        "tags": [
+          ## "Location Data",
+          "Alpha"
+        ],
+        "operationId": "calculateDistanceBetweenPoints",
+        "summary": "Calculate distance between two points",
+        "description": "Calculate the spherical distance across the surface of the earth using two geocode points.",
+        "parameters": [
+          { 
+            "in": "body",
+            "name": "body",
+            "description": "Locations to calculate between",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddressCompare"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Distance calculated"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/Location/ElevationBetween": {
+      "post": {
+        "tags": [
+          ## "Location Data",
+          "Alpha"
+        ],
+        "operationId": "calculateElevationBetweenPoints",
+        "summary": "Calculate the difference in elevation between two points",
+        "description": "Calculates the elevation of one point relative to another.",
+        "parameters": [
+          { 
+            "in": "body",
+            "name": "body",
+            "description": "Locations to calculate between",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddressCompare"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Elevation calculated"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/Location/Validate": {
+      "post": {
+        "tags": [
+          ## "Location Data",
+          "Alpha"
+        ],
+        "operationId": "validateLocation",
+        "summary": "Validate an address",
+        "description": "Validates a given address using DMTI",
+        "parameters": [
+          { 
+            "in": "body",
+            "name": "body",
+            "description": "Address to validate",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Address"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Address valid"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/Location/Suggest": {
+      "post": {
+        "tags": [
+          ## "Location Data",
+          "Alpha"
+        ],
+        "operationId": "suggestLocation",
+        "summary": "Suggest a correction to an address",
+        "description": "Suggests a corrections to addresses using DMTI",
+        "parameters": [
+          { 
+            "in": "body",
+            "name": "body",
+            "description": "Address to validate",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Address"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Address suggestion"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/Location/Locate": {
+      "post": {
+        "tags": [
+          ## "Location Data",
+          "Alpha"
+        ],
+        "operationId": "locateLocation",
+        "summary": "Locate a location to a specific polygon",
+        "description": "Determines which polgyon a geocode exists in using DMTI",
+        "parameters": [
+          { 
+            "in": "body",
+            "name": "body",
+            "description": "Address to validate",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Address"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Polygon found"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/Location/Elevation": {
+      "post": {
+        "tags": [
+          ## "Location Data",
+          "Alpha"
+        ],
+        "operationId": "elevationInfoLocation",
+        "summary": "Determine the elevation of a dwelling",
+        "description": "Determines the elevation of a dwelling using DMTI",
+        "parameters": [
+          { 
+            "in": "body",
+            "name": "body",
+            "description": "Dwelling to determine the elvation of",
+            "required": true,
+            "schema": {
+              "$ref": '#/definitions/Dwelling'
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Elevation Found"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/Location/ProximityWater": {
+      "post": {
+        "tags": [
+          ## "Location Data",
+          "Alpha"
+        ],
+        "operationId": "proximityToWaterInfoLocation",
+        "summary": "Determine a dwellings' proximity to water",
+        "description": "Determines a dwelling's proximity to water using DMTI",
+        "parameters": [
+          { 
+            "in": "body",
+            "name": "body",
+            "description": "Dwelling to determine the proximity to water",
+            "required": true,
+            "schema": {
+              "$ref": '#/definitions/Dwelling'
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Proximity Found"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/Dwelling/MPAC": {
+      "post": {
+        "tags": [
+          ## "Dwelling",
+          "Alpha"
+        ],
+        "operationId": "mpacDataLocation",
+        "summary": "Retrieve a dwellings' MPAC data",
+        "description": "Returns dwelling information for a specific address from MPAC",
+        "parameters": [
+          { 
+            "in": "body",
+            "name": "body",
+            "description": "Dwelling to search MPAC",
+            "required": true,
+            "schema": {
+              "$ref": '#/definitions/Dwelling'
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data retrieved"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/Dwelling/iClarify": {
+      "post": {
+        "tags": [
+          ## "Dwelling",
+          "Alpha"
+        ],
+        "operationId": "iclarifyDataLocation",
+        "summary": "Retrieve a dwellings' iClarify data",
+        "description": "Returns dwelling information for a specific address from iClarify",
+        "parameters": [
+          { 
+            "in": "body",
+            "name": "body",
+            "description": "Dwelling to search iClarify",
+            "required": true,
+            "schema": {
+              "$ref": '#/definitions/Dwelling'
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data retrieved"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/Dwelling/HITS": {
+      "post": {
+        "tags": [
+          ## "Dwelling",
+          "Alpha"
+        ],
+        "operationId": "retrieveHITSData",
+        "summary": "Retrieve property claims from HITS",
+        "description": "Retrieves claims for a dwelling and a person",
+        "parameters": [
+          { 
+            "in": "body",
+            "name": "body",
+            "description": "Dwelling to search HITS",
+            "required": true,
+            "schema": {
+              "$ref": '#/definitions/Dwelling'
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data Retrieed"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/Driver/DrivingRecord": {
+      "post": {
+        "tags": [
+          ## "Driver",
+          "Alpha"
+        ],
+        "operationId": "drivingRecord",
+        "summary": "Calculate a drivers' driving record",
+        "description": "Calculates a driving record",
+        "parameters": [
+          { 
+            "in": "body",
+            "name": "body",
+            "description": "Driver to determine the driving record of",
+            "required": true,
+            "schema": {
+              "$ref": '#/definitions/Contact'
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Record calculated"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/Driver/ConvictionSeverity": {
+      "post": {
+        "tags": [
+          ## "Driver",
+          "Alpha"
+        ],
+        "operationId": "calculateConvictonSeverity",
+        "summary": "Calculate the severity of a conviction",
+        "description": "Based on the garaging location and specific conviction, determines the severity of the conviction",
+        "responses": {
+          "200": {
+            "description": "Severity Calculated"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/Driver/AccidentChargeability": {
+      "post": {
+        "tags": [
+          ## "Driver",
+          "Alpha"
+        ],
+        "operationId": "determineChargeability",
+        "summary": "Determine whether a claim is charable",
+        "description": "Based on the garaging location, and charability rules, determines whether a claim is chargeable against a customer",
+        "responses": {
+          "200": {
+            "description": "Chargeability Determined"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/Driver/Autoplus": {
+      "post": {
+        "tags": [
+          ## "Driver",
+          "Alpha"
+        ],
+        "operationId": "retrieveAutoplus",
+        "summary": "Retrieve Autoplus data",
+        "description": "Retrieves the customers claims and licensing information from Autoplus",
+        "parameters": [
+          { 
+            "in": "body",
+            "name": "body",
+            "description": "Driver to search Autoplus",
+            "required": true,
+            "schema": {
+              "$ref": '#/definitions/Contact'
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data retrieved"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/Driver/FCSA": {
+      "post": {
+        "tags": [
+          ## "Driver",
+          "Alpha"
+        ],
+        "operationId": "retrieveFCSA",
+        "summary": "Retrieve FCSA data",
+        "description": "Retrieves the customers claims and licensing information from FCSA",
+        "parameters": [
+          { 
+            "in": "body",
+            "name": "body",
+            "description": "Driver to search FCSA",
+            "required": true,
+            "schema": {
+              "$ref": '#/definitions/Contact'
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data retrieved"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/Driver/Experience": {
+      "post": {
+        "tags": [
+          ## "Driver",
+          "Alpha"
+        ],
+        "operationId": "calcExperience",
+        "summary": "Calclate the years licensed and insured",
+        "description": "Calculates the number of years the driver has been licensed for and the number of years experience (or insured)",
+        "parameters": [
+          { 
+            "in": "body",
+            "name": "body",
+            "description": "Driver to calculate experience of",
+            "required": true,
+            "schema": {
+              "$ref": '#/definitions/Contact'
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Time calculated"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/Vehicle/RateGroup": {
+      "post": {
+        "tags": [
+          ## "Vehicle",
+          "Alpha"
+        ],
+        "operationId": "determineRateGroup",
+        "summary": "Determine Rate Group by MSRP",
+        "description": "Determines the correct rate group for a vehicle based on the vehicles MSRP",
+        "parameters": [
+          { 
+            "in": "body",
+            "name": "body",
+            "description": "Vehicle to determine rategroup of",
+            "required": true,
+            "schema": {
+              "$ref": '#/definitions/Vehicle'
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Group found"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/Utility/CSIO2GX": {
+      "post": {
+        "tags": [
+          ## "Utility",
+          "Alpha"
+        ],
+        "operationId": "csioToGX",
+        "summary": "Convert CSIO files to GX",
+        "description": "Converts CSIO insurance file into GX format",
+        "responses": {
+          "200": {
+            "description": "File converted"
+          },
+          "400": {
+            "description": "Invalid input",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "Category": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "Dwelling": {
+      "type": "object",
+      "description": "The location of a dwelling",
+      "properties": {
+        "address": {
+          "$ref": "#/definitions/Address",
+        }
+      }
+    },
+    "Address": {
+      "type": "object",
+      "required": [
+        "street",
+        "city",
+        "postal_code",
+        "country_code"
+      ],
+      "properties": {
+        "street": {
+          "type": "string",
+          "description": "full street address including house number and street name",
+          "example": "22 Adelaide Street West"
+        },
+        "additional": {
+          "type": "string",
+          "description": "further details like suite, apartment number, etc.",
+          "example": "Unit 105"
+        },
+        "city": {
+          "type": "string",
+          "description": "name of the city",
+          "example": "Toronto"
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "Postal code",
+          "example": "M3E 5K1"
+        },
+        "country_code": {
+          "type": "string",
+          "format": "iso-3166-1-alpha-2",
+          "example": "CA"
+        },
+        "geocode" : {
+            "$ref" : '#/definitions/Geocode'
+        }
+      }
+    },
+    "AddressCompare" : {
+      "type" : "object",
+      "properties" : {
+        "firstLocation" : {
+          "$ref" : '#/definitions/Address'
+        },
+        "secondLocation" : {
+          "$ref" : '#/definitions/Address'
+        }
+      },
+      "required" : [
+          "firstLocation",
+          "secondLocation"
+        ]
+    },
+    "Contact" : {
+      "type" : "object",
+      "properties" : {
+        "first" : {
+          "type" : "string",
+          "description" : "Contact's first name",
+          "example" : "Tony"
+        },
+        "last" : {
+          "type" : "string",
+          "description" : "Contact's last name",
+          "example" : "Stark"
+        }, 
+        "dateOfBirth" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Contact's date of birth",
+          "example" : "1970-05-29"
+        }, 
+        "licenseNumber" : {
+          "type" : "string",
+          "description" : "Contact's driver license number"
+        }
+      },
+      "required" : [
+        "first",
+        "last"
+      ]
+    },
+    "Vehicle" : {
+      "type" : "object",
+      "properties" : {
+        "make" : {
+          "type" : "string",
+          "description" : "Name of the manufacturer",
+          "example" : "Aston Martin"
+        },
+        "model" : {
+          "type" : "string",
+          "description" : "Model name of the vehicle",
+          "example" : "DB11"
+        }, 
+        "year" : {
+          "type" : "string",
+          "format" : "date",
+          "description" : "Year the vehicle was built",
+          "example" : "2016-11-30"
+        }, 
+        "VIN" : {
+          "type" : "string",
+          "format" : "FMVSS 115, Part 565",
+          "description" : "Vehicle Identificatin Number following US/Canada FMVSS 115, Part 565 requirements",
+          "example" : "SCFRMFAV9HGL00519"
+        }
+      }
+    },
+    "VDA" : {
+      "type" : "object",
+      "description" : "Vehicle to Driver matching object",
+      "properties" : {
+        "drivers" : {
+          "type" : "array",
+          "description" : "Drivers to be matched to vehicles",
+          "items" : [
+              "$ref" : '#/definitions/Contact'
+            ]
+        },
+        "vehicles" :{
+          "type" : "array",
+          "description" : "Vehicles to be matched to drivers",
+          "items" : [
+              "$ref" : '#/definitions/Vehicle'
+            ]
+        }
+      },
+      "required" : [
+        "drivers",
+        "vehicles"
+      ]
+    },
+    "Geocode" : {
+      "type": "object",
+      "description" : "Geocode object",
+      "properties" : {
+        "lat" : {
+          "type" : "number",
+          "format" : "double",
+          "description" : "Latitude of the location",
+          "example" : 37.4224764
+        },
+        "long" :  {
+          "type" : "number",
+          "format" : "double",
+          "description" : "Longitude of the location",
+          "example" : -122.0842499
+        }
+      }
+    },
+    "Tag": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "required": [
+        "status",
+        "short"
+      ],
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "minimum": 100,
+          "maximum": 600,
+          "exclusiveMaximum": true,
+          "example": 503
+        },
+        "short": {
+          "type": "string",
+          "description": "A short, understandable, description of what error occured"
+        },
+        "detail": {
+          "type": "string",
+          "description": "A detailed explanation of what error occured, why it occured, and possible remedies"
+        }
+      }
+    }
+  }
+}

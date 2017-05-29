@@ -1,0 +1,16 @@
+version: '2'
+services:
+  dam:
+    build: dam
+    restart: always
+    environment:
+      - URL=http://127.0.0.1:8080/swagger.json
+    ports:
+      - 80:80
+  dam-base:
+    build: dam-base
+    restart: always
+    environment:
+      - URL=http://127.0.0.1:8080/swagger.json
+    ports:
+      - 8080:80

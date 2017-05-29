@@ -1,0 +1,201 @@
+body {
+  padding-top: 50px;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+.deloitte-logo {
+  max-width:100px; 
+  margin-top: -40px;
+}
+
+.main-section {
+  height: 100vh;
+  /*background: #000000; *//* fallback for old browsers */
+  /*background: -webkit-linear-gradient(to right, #000000, #434343);*/ /* Chrome 10-25, Safari 5.1-6 */
+  /*background: linear-gradient(to right, #000000, #434343);*/ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: url(../img/bg_2.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.main-img {
+  text-align: center;
+  top: 10%;
+}
+
+.swagger-img {
+  position: relative;
+  /*height: 500px;*/
+  animation-duration: 2s;
+}
+
+.tagline {
+  font-size: 20px;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+@keyframes bouncing {
+    0% {bottom: 0;}
+    50% {bottom: 10px;}
+    100% {bottom: 0;}
+}
+.down-arrow {
+  color: white;
+  animation: bouncing 1s infinite ease-in-out;
+  bottom: 0;
+  display: block;
+  height: 50px;
+  font-size: 30px;
+  left: 50%;
+  margin-left: -25px;
+  position: absolute;
+  width: 50px;
+}
+
+.features, .services, .built-using, .contact-us {
+  margin-top: 80px;
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.features > .tagline, .services > .tagline, .built-using > .tagline {
+  position: relative;
+  padding-bottom: 80px;
+}
+
+.features-heading {
+  text-transform: uppercase;
+    font-weight: 400;
+}
+
+.cloud-img {
+  height: 140px;
+}
+
+.col-md-3 > h2 {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.features > .col-md-3 > .fa {
+  font-size: 100px;
+  color: #92d400;
+}
+
+.col-md-3 > p {
+  padding-bottom: 30px;
+}
+
+.vehicle-assignment-img {
+  filter: brightness(40%);
+}
+
+.dwelling-cost-img {
+  filter: brightness(60%);
+}
+
+.moneris-img {
+  filter: brightness(80%);
+}
+
+.driving-record-img {
+  filter: brightness(190%);
+}
+
+.mvr-img {
+  filter: brightness(50%);
+}
+
+
+.card {
+  -webkit-transition: all 0.5s ease; /* Safari and Chrome */
+  -moz-transition: all 0.5s ease; /* Firefox */
+  -ms-transition: all 0.5s ease; /* IE 9 */
+  -o-transition: all 0.5s ease; /* Opera */
+  transition: all 0.5s ease;
+  margin-bottom: 60px;
+}
+
+.card:hover {
+  -webkit-transform:scale(1.07); /* Safari and Chrome */
+    -moz-transform:scale(1.07); /* Firefox */
+    -ms-transform:scale(1.07); /* IE 9 */
+    -o-transform:scale(1.07); /* Opera */
+     transform:scale(1.07);
+}
+
+.card-content {
+  text-align: left;
+  border-top-style: solid;
+  border-top-color: #92d400;
+}
+
+.background-text{
+  left: 0;
+  line-height: 200px;
+  margin-top: -100px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  width: 100%;
+}
+
+.background-text > h1 {
+  color: white !important;
+  font-family: 'Khula',sans-serif;
+  text-transform: uppercase;
+  font-size: 60px;
+  font-weight: 200 !important;
+}
+
+.deloitte-text {
+  font-size: 40px;
+  color: #92d400;
+}
+
+.col-md-4 > a >img {
+  margin-bottom: 60px;
+}
+
+h3.typed-text {
+  color: #E8E8E8;
+  font-weight: 300;
+  font-style: italic;
+}
+
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+h2.sub-heading {
+  font-family: 'Source Sans Pro', sans-serif;
+  text-transform: uppercase;
+}
+

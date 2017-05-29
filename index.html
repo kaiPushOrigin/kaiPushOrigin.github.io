@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <!-- TO DO: Change Title Name  -->
+    <title>Starter Template for Bootstrap</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="stylesheets/materialize.css"> 
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+    <!-- Animate.css library-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+    <!-- Font Awesome library -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- custom css file -->
+    <link rel="stylesheet" href="stylesheets/master.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Khula|Lato:100|Roboto|Source+Sans+Pro" rel="stylesheet">
+
+    <!-- JQuery for Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Angular Js Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script type="text/javascript" src="js/typed.js"></script>
+    <script type="text/javascript" src="js/controllers/controllers.js"></script>
+
+    <script src="node_modules/wowjs/dist/wow.min.js"></script>
+    <script type="text/javascript">
+        new WOW().init();
+    </script>
+
+  </head>
+
+  <body ng-app="myApp">
+
+    <!-- TO DO: Add relvant Menu Options / Otherwise delete it -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://www2.deloitte.com/ca/en.html" target="_blank">
+            <img src="img/deloitte.png" class="deloitte-logo">
+          </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#scrollFeatures">Features</a></li>
+            <li><a href="#scrollServices">Services</a></li>
+            <li><a href="#scrollBuiltUsing">Built Using</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <!-- main code goes in here -->
+    <div class="main-section" ng-controller="coverCtrl">
+      <div class="background-text">
+        <h1><span class="deloitte-text">Deloitte</span><br> API Marketplace</h1>
+        <h3 class="typed-text">
+          <span class="element"></span>
+        </h3>
+
+      </div>
+      <div id="particles-js">
+      </div>
+      <div class="down-arrow">
+        <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+      </div>
+
+    </div>
+
+    <div id="scrollFeatures"></div>
+    <div class="container features">
+      <h2 class="features-heading">Deloitte’s Integrated Platform of Service</h2>
+      <p class="tagline">
+        Deloitte has created a catalogue of insurance
+        specific services to help meet our clients needs and move them towards
+        digitization.
+      </p>
+      <div class="col-md-3 wow animated fadeIn" data-wow-delay=".6s">
+        <!-- <i class="fa fa-rocket img-cloud" aria-hidden="true"></i> -->
+        <i class="fa fa-rocket" aria-hidden="true"></i>
+        <h2 class="sub-heading">Smart Endpoints, Dumb Pipes</h2>
+        <p class="description">
+          Our offerings are specifically tailored to the needs of insurance
+          companies in the P&C space.
+        </p>
+      </div>
+      <div class="col-md-3 wow animated fadeIn" data-wow-delay=".6s">
+        <!-- <img src="img/cloud.png" alt="" class="cloud-img"> -->
+        <i class="fa fa-desktop" aria-hidden="true"></i>
+        <h2 class="sub-heading">Dismantle the monolith</h2>
+        <p class="description">
+          Our integrated platform for service enables business to be more
+           agile by moving away from the limitations of a monolithic
+           architecture.
+        </p>
+      </div>
+      <div class="col-md-3 wow animated fadeIn" data-wow-delay=".6s">
+        <!-- <img src="img/monitor.png" alt="" class="cloud-img"> -->
+        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+        <h2 class="sub-heading">Break up from long commitments</h2>
+        <p class="description">
+          Microservices are optimized for change.
+          Independent end points mean changes don’t need to
+          require business downtime, keeping operations 24/7
+        </p>
+      </div>
+      <div class="col-md-3 wow animated fadeIn" data-wow-delay=".6s">
+        <!-- <img src="img/automation.jpg" alt="" class="cloud-img"> -->
+        <i class="fa fa-cog fa-3x fa-fws" aria-hidden="true"></i>
+        <h2 class="sub-heading">Robots are the <br>future</h2>
+        <p class="description">
+          Our insurance specific offerings allow companies to obtain data
+          that can transform organizations from manually run to full automation.
+        </p>
+      </div>
+    </div>
+    <hr>
+    <div id="scrollServices"></div>
+    <div class="container services">
+      <h2 class="features-heading">Available Beta Services</h2>
+      <p class="tagline">
+      Deloitte has created a catalogue of insurance
+      specific services to help meet our clients needs and move them towards
+      digitization.
+      </p>
+
+      <div class="row">
+
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-image">
+              <img src="img/vehicle.jpg" class="vehicle-assignment-img">
+              <span class="card-title">Optimized Vehicle to Driver Assignment</span>
+            </div>
+            <div class="card-content">
+              <p>Provides the vehicle to driver assignment optimized for lowest premium. More text will go here.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Explore this API</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-image">
+              <img src="img/dwelling.jpg" class="dwelling-cost-img">
+              <span class="card-title">Dwelling Replacement Cost Calculator</span>
+            </div>
+            <div class="card-content">
+              <p>Calculates the replacement cost of a dwelling based on a defined set up inputs. More text will essentially go here.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Explore this API</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-image">
+              <img src="img/moneris.jpg" class="moneris-img">
+              <span class="card-title">Moneris Payment Processing</span>
+            </div>
+            <div class="card-content">
+              <p>Using an iFrame, retrieves a tokenized link from Moneris. This service is used for credit card payment processing.<br></p>
+            </div>
+            <div class="card-action">
+              <a href="#">Explore this API</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-image">
+              <img src="img/drive.png" class="driving-record-img">
+              <span class="card-title">Driving Record Details</span>
+            </div>
+            <div class="card-content">
+              <p>Calculates the drivers' driving record. <br>More text will essentially go here. <br>More text will essentially go here.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Explore this API</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-image">
+              <img src="img/mvr.jpg" class="mvr-img">
+              <span class="card-title">MVR from Ministry of Transportation</span>
+            </div>
+            <div class="card-content">
+              <p>Retrieves customers' conviction and license information from the MTO More text will essentially go here.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Explore this API</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <hr>
+
+   <!--  <div id="scrollBuiltUsing"></div> -->
+    <div class="container built-using" id="scrollBuiltUsing">
+      <h2 class="features-heading">Built Using Trusted Platforms</h2>
+      <p class="tagline">
+        API Marketplace is built using trust worthy third party data services. Some More Text needed here!
+      </p>
+      
+      <div class="col-md-4">
+        <a href="http://swagger.io/" target="_blank">
+          <img src="img/swagger.png" class="img-responsive">
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="https://www.docker.com/" target="_blank">
+           <img src="img/docker.png" class="img-responsive">
+        </a>       
+      </div>
+      <div class="col-md-4">
+        <a href="https://aws.amazon.com/" target="_blank">
+          <img src="img/aws.jpg" class="img-responsive">
+        </a> 
+      </div>
+
+    </div>
+  
+  </body>
+
+  <!-- Particles.js files -->
+  <script src='http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
+  <script src="js/particles.js"></script>
+</html>
